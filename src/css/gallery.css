@@ -1,0 +1,18 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: calc(360px * 3 + 48px);
+  margin: 0 auto;
+}
+.gallery-item {
+}
+
+.gallery-link {
+}
+
+.gallery-image {
+  width: 360px;
+  height: 200px;
+  display: block;
+}
