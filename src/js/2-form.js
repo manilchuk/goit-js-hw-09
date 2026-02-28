@@ -2,20 +2,20 @@ let formData = {
   email: '',
   message: '',
 };
+
 const form = document.querySelector('.feedback-form');
-form.addEventListener('input', e => {
+
+const userForm = loadFromLS('feedback-form-state', {});
+form.elements.email.value = userForm.email || '';
+form.elements.message.value = userForm.message || '';
+formData.email = userForm.email || '';
+formData.message = userForm.message || '';
+
+form.addEventListener('input', () => {
   const fd = new FormData(form);
   formData.email = fd.get('email');
   formData.message = fd.get('message');
   saveToLS('feedback-form-state', formData);
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const userForm = loadFromLS('feedback-form-state', {});
-  form.elements.email.value = userForm.email || '';
-  form.elements.message.value = userForm.message || '';
-  formData.email = userForm.email || '';
-  formData.message = userForm.message || '';
 });
 
 form.addEventListener('submit', e => {
